@@ -18,8 +18,8 @@ key_mapping = {
 
 forbidden = {'U': '123', 'D': '789', 'L': '147', 'R': '369'}
 
-def check_overflow(move, curr_key):
-    return curr_key in forbidden[move]      
+def is_valid_move(move, curr_key):
+    return curr_key not in forbidden[move]      
 
 def solve(moves):
     curr_key = init_key
@@ -29,7 +29,7 @@ def solve(moves):
     for key in moves.split('\n'):
         for move in key:
             next_move = instructions_mapping[move] #U = 1, 0
-            if not check_overflow(move, curr_key):
+            if is_valid_move(move, curr_key):
                 curr_coordinates = (curr_coordinates[0] + next_move[0], curr_coordinates[1] + next_move[1])
                 curr_key = key_mapping.keys()[key_mapping.values().index(curr_coordinates)]
         keys += curr_key
