@@ -16,17 +16,10 @@ key_mapping = {
     '7': (-1, -1), '8': (-1, 0), '9': (-1, 1)
 }
 
+forbidden = {'U': '123', 'D': '789', 'L': '147', 'R': '369'}
+
 def check_overflow(move, curr_key):
-    if move == 'U' and curr_key in ('1', '2', '3'):
-        return 0
-    if move == 'D' and curr_key in ('7', '8', '9'):
-        return 0
-    if move == 'L' and curr_key in ('1', '4', '7'):
-        return 0
-    if move == 'R' and curr_key in ('3', '6', '9'):
-        return 0
-    return 1
-        
+    return curr_key in forbidden[move]      
 
 def solve(moves):
     curr_key = init_key
@@ -36,7 +29,7 @@ def solve(moves):
     for key in moves.split('\n'):
         for move in key:
             next_move = instructions_mapping[move] #U = 1, 0
-            if check_overflow(move, curr_key):
+            if not check_overflow(move, curr_key):
                 curr_coordinates = (curr_coordinates[0] + next_move[0], curr_coordinates[1] + next_move[1])
                 curr_key = key_mapping.keys()[key_mapping.values().index(curr_coordinates)]
         keys += curr_key
