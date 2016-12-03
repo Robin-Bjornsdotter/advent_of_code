@@ -1,11 +1,11 @@
 #!/usr/bin/env/ python
 
-def chunks(row, n):
+def get_triangle(row, n):
     return (row[i:i+n] for i in xrange(0, len(row), n))
 
 def is_a_triangle(triangles):
     triangles_count = 0
-    for triangle in chunks(triangles, 3):
+    for triangle in get_triangle(triangles, 3):
         a = int(triangle[0])
         b = int(triangle[1])
         c = int(triangle[2])
