@@ -1,5 +1,10 @@
 #!/usr/bin/env/ python
 
+def is_triangle(a, b, c):
+    if a+b>c and b+c>a and a+c>b:
+        return True
+    return False
+
 def get_triangle(row, n):
     return (row[i:i+n] for i in xrange(0, len(row), n))
 
@@ -9,7 +14,7 @@ def count_triangles(triangles):
         a = int(triangle[0])
         b = int(triangle[1])
         c = int(triangle[2])
-        if a+b>c and b+c>a and a+c>b:
+        if is_triangle:
             triangles_count += 1
     return triangles_count
 
