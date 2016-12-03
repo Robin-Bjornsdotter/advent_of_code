@@ -1,7 +1,5 @@
 #!/usr/bin/env/ python
 
-import re
-
 def chunks(row, n):
     return (row[i:i+n] for i in xrange(0, len(row), n))
 
@@ -30,7 +28,6 @@ def solve(triangles):
     for column in (col_0, col_1, col_2):
         triangles_count += is_a_triangle(column)
     return triangles_count
-
 
 with open('test_input') as f:
     triangles = f.read()
