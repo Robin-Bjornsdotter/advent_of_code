@@ -1,9 +1,7 @@
 #!/usr/bin/env/ python
 
 def is_triangle(a, b, c):
-    if a+b>c and b+c>a and a+c>b:
-        return True
-    return False
+    return a+b>c and b+c>a and a+c>b:
 
 def get_triangle(row, n):
     return (row[i:i+n] for i in xrange(0, len(row), n))
