@@ -1,9 +1,7 @@
 #!/usr/bin/env/ python
 
 def is_triangle(a, b, c):
-    if a+b>c and b+c>a and a+c>b:
-        return True
-    return False
+    return a+b>c and b+c>a and a+c>b:
 
 def count_triangles(triangles):
     triangles_count = 0
