@@ -1,5 +1,7 @@
 #!/usr/bin/env/ python
 
+from __future__ import print_function
+
 def is_triangle(a, b, c):
     return a+b>c and b+c>a and a+c>b
 
@@ -9,10 +11,8 @@ def get_triangle(row, n):
 def count_triangles(triangles):
     triangles_count = 0
     for triangle in get_triangle(triangles, 3):
-        a = int(triangle[0])
-        b = int(triangle[1])
-        c = int(triangle[2])
-        if is_triangle:
+       sides = map(int, triangle)
+       if is_triangle(*sides):
             triangles_count += 1
     return triangles_count
 
@@ -38,4 +38,4 @@ assert solve(triangles) == 9
 
 with open('input') as f:
     triangles = f.read()
-print "COL: There are", solve(triangles), "triangles in the input file."
+print("COL: There are", solve(triangles), "triangles in the input file.")
