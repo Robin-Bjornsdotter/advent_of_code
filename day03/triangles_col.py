@@ -3,7 +3,7 @@
 def get_triangle(row, n):
     return (row[i:i+n] for i in xrange(0, len(row), n))
 
-def is_a_triangle(triangles):
+def count_triangles(triangles):
     triangles_count = 0
     for triangle in get_triangle(triangles, 3):
         a = int(triangle[0])
@@ -26,7 +26,7 @@ def solve(triangles):
         col_2.append(vals[2])
         
     for column in (col_0, col_1, col_2):
-        triangles_count += is_a_triangle(column)
+        triangles_count += count_triangles(column)
     return triangles_count
 
 with open('test_input') as f:
