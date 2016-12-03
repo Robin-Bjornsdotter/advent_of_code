@@ -1,6 +1,6 @@
 #!/usr/bin/env/ python
 
-def is_a_triangle(triangles):
+def count_triangles(triangles):
     triangles_count = 0
     for triangle in triangles.split('\n'):
         sides =  triangle.split()
@@ -15,4 +15,4 @@ def is_a_triangle(triangles):
 with open('input') as f:
     triangles = f.read()
 
-print "There are", is_a_triangle(triangles), "in the input file."
+print "There are", count_triangles(triangles), "in the input file."
