@@ -24,9 +24,9 @@ def decrypt():
     decrypted = ''
     for i in range(len_line):
         most_common = Counter(get_chars(jammed, i)).items()
-        most_common = sorted(most_common, key=itemgetter(1), reverse = True)
+        most_common = sorted(most_common, key=itemgetter(1)) # for first part need to add reverse=True
         decrypted += str(most_common[0][0])
     return decrypted
     
-#assert decrypt() == 'easter'
+#assert decrypt() == 'advent' # for first task there's "easter"
 print("The original message is:", decrypt())
